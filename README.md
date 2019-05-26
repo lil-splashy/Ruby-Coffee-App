@@ -25,3 +25,14 @@
     - User can sort community recipes by newest, highest rated, etc.
         
     ***Wireframes***
+
+    -Home Page: https://imgur.com/7YtrVRn
+
+    -User Login Page: https://imgur.com/9EQwYWR
+
+    -User Index/Profile Page: https://imgur.com/9ANbJNb
+
+    -Create Drink Page: https://imgur.com/XpFgwxV
+
+    -Community Index Page: https://imgur.com/U8mbJAa
+
