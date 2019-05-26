@@ -12,6 +12,7 @@ CREATE TABLE users(
 
 CREATE TABLE recipes(
 	id SERIAL PRIMARY KEY,
-	recipe_name VARCHAR (255),
+	drink_name VARCHAR(60),
+	recipe VARCHAR(255)
 	user_id INTEGER REFERENCES users(id) --foreign key
 );
