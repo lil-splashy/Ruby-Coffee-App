@@ -1,0 +1,13 @@
+<h2>Recipe Index</h2>
+<ul>
+    <% @recipes.each do |recipe| %>
+    <li>
+        <% recipe.drink %>
+        <a href="/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
+        <form action="/recipes/<%= recipe.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button>Delete</button>
+        </form>
+    </li>
+    <% end %>
+</ul>
