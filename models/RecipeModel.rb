@@ -1,4 +1,4 @@
 class Recipe < ActiveRecord::Base
     belongs_to :user
-    has_many :ratings
+    has_many :recipe_ratings
 end
