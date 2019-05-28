@@ -1,15 +1,12 @@
 require 'sinatra/base'
 
-
-
 require './controllers/ApplicationController'
 require './controllers/RecipeController'
 require './controllers/UserController'
 
-
-require './models/RatingModel'
-require './models/RatingModel'
 require './models/UserModel'
+require './models/RecipeModel'
+require './models/RatingModel'
 
 map ('/') {
   run ApplicationController

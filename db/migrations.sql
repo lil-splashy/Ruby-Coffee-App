@@ -18,7 +18,7 @@ CREATE TABLE recipes(
 	rating 
 );
 
-CREATE TABLE recipe_ratings(
+CREATE TABLE ratings(
 	id SERIAL PRIMARY KEY,
 	rating TINYINT(5), 				
 	--rating "belongs to" recipe
