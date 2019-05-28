@@ -8,7 +8,7 @@ require './controllers/UserController'
 
 
 require './models/RatingModel'
-require './models/RecipeModel'
+require './models/RatingModel'
 require './models/UserModel'
 
 map ('/') {

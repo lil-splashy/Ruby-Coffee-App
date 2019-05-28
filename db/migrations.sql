@@ -20,7 +20,7 @@ CREATE TABLE recipes(
 
 CREATE TABLE recipe_ratings(
 	id SERIAL PRIMARY KEY,
-	rating VARCHAR(5), 				--using VARCHAR datatype as placeholder for now
+	rating TINYINT(5), 				
 	--rating "belongs to" recipe
 	--recipe "has many" ratings
 	recipe_id INTEGER REFERENCES recipes(id) --foreign key
