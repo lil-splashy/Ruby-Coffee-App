@@ -2,7 +2,7 @@
 <ul>
     <% @recipes.each do |recipe| %>
     <li>
-        <% recipe.drink %>
+        <% recipe.name %>
         <a href="/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
         <form action="/recipes/<%= recipe.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
