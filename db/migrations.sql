@@ -16,3 +16,10 @@ CREATE TABLE recipes(
 	recipe VARCHAR(255)
 	user_id INTEGER REFERENCES users(id) --foreign key
 );
+
+CREATE TABLE recipe_ratings(
+
+
+
+
+);

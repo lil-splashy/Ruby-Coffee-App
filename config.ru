@@ -16,3 +16,7 @@ map ('/') {
 map ('/recipes') {
   run RecipeController
 }
+
+map ('/users') {
+	run UserController
+}
