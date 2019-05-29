@@ -38,7 +38,7 @@ class UserController < ApplicationController
 		erb :register
 	end
 
-	#DO REGISTERATION PAGE
+	#DO REGISTRATION PAGE
 	post '/register' do
 		user = User.find_by username: params[:username]
 

@@ -15,16 +15,16 @@ CREATE TABLE recipes(
 	drink_name VARCHAR(60),
 	recipe VARCHAR(255),
 	user_id INTEGER REFERENCES users(id) --foreign key
-	rating 
+	-- rating 
 );
 
 CREATE TABLE ratings(
 	id SERIAL PRIMARY KEY,
-	rating TINYINT(5), 				
+	rating SMALLINT, 				
 	--rating "belongs to" recipe
 	--recipe "has many" ratings
-	recipe_id INTEGER REFERENCES recipes(id) --foreign key
+	recipe_id INTEGER REFERENCES recipes(id), --foreign key
 	--recipe "belongs to" user
 	--user "has many" recipes
-	user_id INTEGER REFERENCES users(id), --foreign key
+	user_id INTEGER REFERENCES users(id) --foreign key
 );
