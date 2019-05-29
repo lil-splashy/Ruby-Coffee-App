@@ -4,7 +4,7 @@ class RecipeController < ApplicationController
         puts "filter is running"
         if !session[:logged_in]
 
-            session["message"] = {
+            session[:message] = {
                 success: false,
                 status: "bad",
                 message: "Gotta be logged in to do that."
@@ -14,16 +14,19 @@ class RecipeController < ApplicationController
     end
 
     # Indexing Recipes
-    get '/' def 
-        @recipes = Recipes 
-        erb: recipe_index
+    get '/' do 
+        user = User.find_by({ :username => session[:username]})
+        @recipes = user.recipes
+
+        erb :recipe_index
     end
 
     #  Creating Recipes
-    post '/' def 
+    post '/' do 
 
         new_recipe = Recipe.new
-        new_reicpe.content = params[:content]
+        new_recipe.drink_name = params[:drink_name]
+        new_recipe.recipe = params[:recipe]
         new_recipe.save
 
         session[:message] = {
@@ -34,16 +37,16 @@ class RecipeController < ApplicationController
         redirect '/recipes'
     end
 
-    get '/new' def 
+    get '/new' do 
 
         erb :recipe_new
     end
 
     # update
-    put '/:id' def 
+    put '/:id' do 
 
         recipe_update = Recipe.find params[:id]
-        recipe_update.content = params[:contnet]
+        recipe_update.drink_name = params[:drink_name]
         recipe_update.save
 
         session[:message] = {

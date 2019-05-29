@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
 
 
 	# user.recipes
-	has_many :recipes, through => :ratings
+	# has_many :recipes, through => :ratings
 end

@@ -8,7 +8,7 @@ class UserController < ApplicationController
 	#DO LOGIN PAGE
 	post '/login' do
 		#find user by username
-		user = Usr.find_by username: params[:username]
+		user = User.find_by username: params[:username]
 
 		pw = params[:password]
 
@@ -52,9 +52,6 @@ class UserController < ApplicationController
 			session[:logged_in] = true
 			session[:username] = user.username
 			session[:message] = {
-				success: true,
-				status: "good",
-				message: "Welcome, #{user.username}!"
 			}
 
 			redirect '/profile'
