@@ -1,13 +1,26 @@
-body {
-	background-color: lightblue;
+html {
+	background-color: #BE9B7B;
 }
+header {
+		background-color: #BE9B7B;
 
+}
 nav {
 	width: 49%;
 	display: inline-block;
+	background-color: #DFCCAF;
+	color: #854442;
 }
 
 nav:last-child {
 	text-align: right;
 }
 
+.container {
+	background-color: #6F4436;
+}
+
+.list-group {
+	background-color: 
+	width
+}
