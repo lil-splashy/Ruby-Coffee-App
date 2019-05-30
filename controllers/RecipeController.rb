@@ -33,10 +33,10 @@ class RecipeController < ApplicationController
         erb :recipe_new
     end
     #  Creating Recipes
-    post '/' do 
+    post '/new' do 
 
         new_recipe = Recipe.new
-        new_recipe.content = params[:content]
+        new_recipe.drink_name = params[:drink_name]
 
         logged_in_user = User.find_by({:username => session[:username]})
         new_recipe.user_id = logged_in_user.id
