@@ -15,7 +15,7 @@ class RecipeController < ApplicationController
 
     # Indexing Recipes
     get '/' do 
-        user = User.find_by({ :username => session[:username]})
+        user = User.find_by({:username => session[:username]})
         @recipes = user.recipes
 
         erb :recipe_index
@@ -27,6 +27,9 @@ class RecipeController < ApplicationController
         new_recipe = Recipe.new
         new_recipe.drink_name = params[:drink_name]
         new_recipe.recipe = params[:recipe]
+
+        logged_in_user = User.find_by({:username => session[:username]})
+        new_item.user_id = logged_in_user.id
         new_recipe.save
 
         session[:message] = {
@@ -34,9 +37,10 @@ class RecipeController < ApplicationController
             status: "good",
             message: "Created your fresh new recipe #{new_recipe.id} check it out! "
         }
+     
         redirect '/recipes'
     end
-
+    # New Recipes  
     get '/new' do 
 
         erb :recipe_new
@@ -72,7 +76,7 @@ class RecipeController < ApplicationController
     end
 
     after do
-        "after filter is running"
+       puts "after filter is running"
     end
 
 end
