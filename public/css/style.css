@@ -7,7 +7,7 @@ nav {
 	display: inline-block;
 }
 
-nav: last-child {
+nav:last-child {
 	text-align: right;
 }
 
