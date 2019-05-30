@@ -31,5 +31,5 @@ class ApplicationController < Sinatra::Base
     get '*' do
         halt 404
     end
-
+    
 end
