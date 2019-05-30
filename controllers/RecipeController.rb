@@ -15,10 +15,18 @@ class RecipeController < ApplicationController
 
     # Indexing Recipes
     get '/' do 
-        user = User.find_by({:username => session[:username]})
+        user = User.find_by({ :username => session[:username] })
         @recipes = user.recipes
 
         erb :recipe_index
+    end
+
+    # Edit Recipes
+    get '/:id/edit' do
+        @recipe = Recipe.find params[:id]
+
+        erb :recipe_edit
+    
     end
 
     #  Creating Recipes
@@ -35,18 +43,24 @@ class RecipeController < ApplicationController
         session[:message] = {
             success: true,
             status: "good",
-            message: "Created your fresh new recipe #{new_recipe.id} check it out! "
+            message: "Created your fresh new recipe ##{new_recipe.id} check it out! "
         }
-     
+
         redirect '/recipes'
     end
+
     # New Recipes  
     get '/new' do 
 
         erb :recipe_new
     end
 
-    # update
+    # Show Recipes
+    get '/recipes' do
+        erb :recipes
+    end
+
+    # Update Recipes
     put '/:id' do 
 
         recipe_update = Recipe.find params[:id]
