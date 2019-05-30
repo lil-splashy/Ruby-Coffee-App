@@ -2,9 +2,7 @@
 <ul class="list-group">
     <% @recipes.each do |recipe| %>
     <li>
-        <% recipe.drink_name %>
-    <li class="list-group-item">
-        <% recipe.drink_name %>
+        <%= recipe.drink_name %>
         <a href="/recipes/<%= recipe.drink_name %>/edit">Edit Recipe</a>
         <form action="/recipes/<%= recipe.drink_name %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
@@ -12,4 +10,4 @@
         </form>
     </li>
     <% end %>
-</ul>x
+</ul>
