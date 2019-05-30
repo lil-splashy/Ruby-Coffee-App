@@ -23,12 +23,15 @@ class RecipeController < ApplicationController
 
     # Edit Recipes
     get '/:id/edit' do
-        @recipe = Recipe.find params[:id]
+        @recipes = Recipes.find params[:id]
 
         erb :recipe_edit
     
     end
 
+    get '/new' do 
+        erb :recipe_new
+    end
     #  Creating Recipes
     post '/' do 
 
@@ -36,7 +39,7 @@ class RecipeController < ApplicationController
         new_recipe.content = params[:content]
 
         logged_in_user = User.find_by({:username => session[:username]})
-        new_item.user_id = logged_in_user.id
+        new_recipe.user_id = logged_in_user.id
         new_recipe.save
 
         session[:message] = {
@@ -49,10 +52,7 @@ class RecipeController < ApplicationController
     end
 
     # New Recipes  
-    get '/new' do 
-
-        erb :recipe_new
-    end
+    
 
     # Show Recipes
     get '/recipes' do
