@@ -2,6 +2,9 @@ class ApplicationController < Sinatra::Base
     require 'bundler'
     Bundler.require
 
+    #environment config
+    require './config/environments'
+    
     enable :sessions
 
     ActiveRecord::Base.establish_connection(
@@ -31,5 +34,5 @@ class ApplicationController < Sinatra::Base
     get '*' do
         halt 404
     end
-    
+
 end
