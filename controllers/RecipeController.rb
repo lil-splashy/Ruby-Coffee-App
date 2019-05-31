@@ -16,17 +16,9 @@ class RecipeController < ApplicationController
     # Indexing Recipes
     get '/' do 
         user = User.find_by({ :username => session[:username] })
-        @recipes = user.recipes
+        @recipe = user.recipes
 
         erb :recipe_index
-    end
-
-    # Edit Recipes
-    get '/:id/edit' do
-        @recipes = Recipes.find params[:id]
-
-        erb :recipe_edit
-    
     end
 
     get '/new' do 
@@ -37,7 +29,7 @@ class RecipeController < ApplicationController
 
         new_recipe = Recipe.new
         new_recipe.drink_name = params[:drink_name]
-
+        new_recipe.body = params[:body]
         logged_in_user = User.find_by({:username => session[:username]})
         new_recipe.user_id = logged_in_user.id
         new_recipe.save
@@ -57,6 +49,11 @@ class RecipeController < ApplicationController
     # Show Recipes
     get '/recipes' do
         erb :recipes
+    end
+     # Edit Recipes
+    get '/:id/edit' do
+        @recipe = Recipe.find params[:id]
+        erb :recipe_edit
     end
 
     # Update Recipes

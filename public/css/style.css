@@ -9,15 +9,17 @@ nav {
 	width: 49%;
 	display: inline-block;
 	background-color: #DFCCAF;
-	color: #854442;
+	color: #ffffff;
+	text-decoration: none;
 }
 
 nav:last-child {
 	text-align: right;
 }
 
-.container {
+li {
 	background-color: #6F4436;
+	color: #ffffff;
 }
 
 .list-group {
