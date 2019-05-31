@@ -13,7 +13,7 @@ class RecipeController < ApplicationController
         end
     end
 
-    # Indexing Recipes
+    # Index Recipes
     get '/' do 
         user = User.find_by({ :username => session[:username] })
         @recipes = user.recipes
@@ -23,16 +23,12 @@ class RecipeController < ApplicationController
 
     # Edit Recipes
     get '/:id/edit' do
-        @recipes = Recipes.find params[:id]
+        @recipe = Recipe.find params[:id]
 
         erb :recipe_edit
-    
     end
 
-    get '/new' do 
-        erb :recipe_new
-    end
-    #  Creating Recipes
+    #  Create Recipes
     post '/new' do 
 
         new_recipe = Recipe.new
@@ -50,9 +46,11 @@ class RecipeController < ApplicationController
 
         redirect '/recipes'
     end
-
-    # New Recipes  
-    
+ 
+    # New Recipes
+    get '/new' do 
+        erb :recipe_new
+    end
 
     # Show Recipes
     get '/recipes' do
@@ -74,7 +72,7 @@ class RecipeController < ApplicationController
         redirect '/recipes'
     end
 
-    # destroy
+    # Destroy Recipes
     delete '/:id' do 
         recipe = Recipe.find params[:id]
         recipe.destroy
