@@ -25,6 +25,7 @@
         </nav>
     </header>
     <div class="container">
+        
     <% if session[:message] %>
     <p class="message <%= session[:message][:status] %>"><%= session[:message][:message] %></p>
     <%
