@@ -1,6 +1,7 @@
 <h2>Edit Recipe</h2>
 <form action="/recipes/<%= @recipe.id %>" method="POST">
 	<input type="hidden" name="_method" value="PUT" />
-	<input type="text" name="drink" value="<%= @recipe.drink_name %>" />
+	<input type="text" name="drink_name" value="<%= @recipe.drink_name %> " /></br>
+	<input type="text" name="body" value="<%= @recipe.body %>" /></br>
 	<button>Update Recipe</button>
 </form>

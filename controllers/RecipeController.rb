@@ -13,27 +13,25 @@ class RecipeController < ApplicationController
         end
     end
 
-    # Index Recipes
+    # Indexing Recipes
     get '/' do 
         user = User.find_by({ :username => session[:username] })
-        @recipes = user.recipes
+        @recipe = user.recipes
 
         erb :recipe_index
     end
 
-    # Edit Recipes
-    get '/:id/edit' do
-        @recipe = Recipe.find params[:id]
-
-        erb :recipe_edit
+    # New Recipes
+    get '/new' do 
+        erb :recipe_new
     end
 
-    #  Create Recipes
+    #  Creating Recipes
     post '/new' do 
 
         new_recipe = Recipe.new
         new_recipe.drink_name = params[:drink_name]
-
+        new_recipe.body = params[:body]
         logged_in_user = User.find_by({:username => session[:username]})
         new_recipe.user_id = logged_in_user.id
         new_recipe.save
@@ -41,20 +39,21 @@ class RecipeController < ApplicationController
         session[:message] = {
             success: true,
             status: "good",
-            message: "Created your fresh new recipe ##{new_recipe.id} check it out! "
+            message: "Created your fresh new recipe! "
         }
 
         redirect '/recipes'
-    end
- 
-    # New Recipes
-    get '/new' do 
-        erb :recipe_new
-    end
+    end    
 
     # Show Recipes
     get '/recipes' do
         erb :recipes
+    end
+    
+     # Edit Recipes
+    get '/:id/edit' do
+        @recipe = Recipe.find params[:id]
+        erb :recipe_edit
     end
 
     # Update Recipes
@@ -62,12 +61,14 @@ class RecipeController < ApplicationController
 
         recipe_update = Recipe.find params[:id]
         recipe_update.drink_name = params[:drink_name]
+        recipe_update.body = params[:body]
+
         recipe_update.save
 
         session[:message] = {
             success: true,
             status: "good",
-            message: "updated your recipe"
+            message: "Your recipe has been updated"
         }
         redirect '/recipes'
     end

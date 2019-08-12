@@ -54,7 +54,7 @@ class UserController < ApplicationController
 			session[:message] = {
 			}
 
-			redirect '/profile'
+			redirect '/recipes'
 
 		else
 			session[:message] = {

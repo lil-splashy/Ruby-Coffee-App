@@ -1,13 +1,42 @@
-body {
-	background-color: lightblue;
+html {
+	/*background-color: #BE9B7B;*/
+/*	background-image: url(https://graddonvending.co.uk/budcms/uploaded_files/banner-coffee-shop-main_1262514527.jpg);
+*/
+	font-family: 'Lobster', Georgia, Times, serif;
+	font-size: 70px;
+ 	line-height: 100px;
 }
 
+header {
+	/*background-color: #BE9B7B;*/
+	width: 1000px;
+	font-family: 'Lobster', Georgia, Times, serif;
+	font-size: 70px;
+ 	line-height: 100px;
+}
+
+.header-nav{
+/*	background-image: url(https://graddonvending.co.uk/budcms/uploaded_files/banner-coffee-shop-main_1262514527.jpg);
+*/}
+
 nav {
-	width: 49%;
+	width: 200px;
 	display: inline-block;
+	/*background-color: #DFCCAF;
+	color: #ffffff;*/
+	text-decoration: none;
 }
 
 nav:last-child {
 	text-align: right;
 }
 
+li {
+	/*background-color: #6F4436;
+	color: #ffffff;*/
+}
+
+.container div {
+	background-size: cover;
+	/*width: 1500px;*/
+}

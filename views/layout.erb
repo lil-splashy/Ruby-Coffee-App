@@ -5,16 +5,15 @@
     <title>Ruby Coffee App</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark">
+    <header class="header-nav" >
+        <nav class="navbar" style="background-image: url(https://graddonvending.co.uk/budcms/uploaded_files/banner-coffee-shop-main_1262514527.jpg)">
             <a href="/recipes">All Recipes</a>
             <a href="/recipes/new">Add Recipe</a>
-        </nav>
-
-        <nav class="navbar navbar-dark bg-dark">
             <% if session[:logged_in] %>
             Welcome, <%= session[:username] %>
             <a href="/users/logout">Log Out</a>
@@ -22,9 +21,9 @@
             <a href="/users/login">Log In</a> |
             <a href="/users/register">Create Account</a>
             <% end %>
-        </nav>
+        </nav> 
     </header>
-    <div class="container">
+    <div class="container" style="background-image: url(https://image.shutterstock.com/image-vector/vector-cartoon-cafe-room-cozy-260nw-1183940239.jpg)">
     <% if session[:message] %>
     <p class="message <%= session[:message][:status] %>"><%= session[:message][:message] %></p>
     <%

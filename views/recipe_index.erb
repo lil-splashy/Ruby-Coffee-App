@@ -1,12 +1,11 @@
 <h2>Recipe Index</h2>
 <ul class="list-group">
-    <% @recipes.each do |recipe| %>
+    <% @recipe.each do |recipe| %>
     <li>
-        <%= recipe.drink_name %>
-        <form action="/recipes/<%= recipe.drink_name %>/edit">
-            <button>Edit</button>
-        </form>
-        <form action="/recipes/<%= recipe.drink_name %>" method="POST">
+        <%= recipe.drink_name %></br>
+        <%= recipe.body %> 
+        <a href="/recipes/<%= recipe.id %>/edit">Edit Recipe</a>
+        <form action="/recipes/<%= recipe.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <button>Delete</button>
         </form>
